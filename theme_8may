@@ -1,0 +1,1965 @@
+/* Theme 2023 - Responsive Websites (DO NOT DELETE) */
+ /* Style Attributes */
+
+/* CSS DIRECTORY
+To easily find a section and its selectors, do a search by the first 3 letters from the index below (i.e. search for "=HOT")
+	1. =GENERAL
+	2. =WELCOME-PAGE
+	3. =CONSENT
+	4. =CONTACT
+	5. =REGISTRATION-FEES
+	6. =HOTEL
+  7. =SUMMARY
+  8. =GROUPS
+	9. =PORTAL/UNIVERSAL-APP
+	10. =INFORMATION-PAGES
+  11. =ABSTRACTS
+  12. =SUPPLIER-PORTAL
+*/
+
+/* ============================
+   ==========GENERAL=========== 
+   ============================ */
+
+/*** PAGE WIDTH AND PAGE FONT + BACKGROUND COLOR ***/
+body, .dxgvTable, input, select, textarea, file, .dxgvHeader, .dxgvHeader table, .dxgvControl, .dxgvDisabled, .dxtlControl, .dxtlHeader td.dxtl, .dxtlNode td.dxtl, .dxtlAltNode td.dxtl, .dxtlSelectedNode td.dxtl, .dxtlFocusedNode td.dxtl, .dxtlEditFormDisplayNode td.dxtl, .dxtlCommandCell, .dxeEditArea, .dxeListBox, .dxeListBoxItem, .dxgvTable_EventList {
+    font-family: var(--primary-font-family);
+}
+/* If you want an image as background instead, uncomment the declaration "background" and remove the "background-color" one */
+body {
+    color: var(--primary-font-color);
+    font-size: var(--primary-font-color-size);
+    background-image: none;
+    background: var(--body-background);
+    /* background: url(/Download.axd?FileID=7331eae8-aa5a-45d1-9c2a-e950ac34543d) no-repeat center fixed; */
+}
+
+#page{
+    max-width: 100vw;
+}
+
+/* This changes the background color of the main container (where all the text lives) - keep it the same color as the body background color or change if want a contrast */
+#page.community-registration {
+    width: 100%;
+    background: var(--body-background);
+}
+
+#page.community-registration > .main-content {
+    margin: auto;
+    max-width: var(--content-section-size) !important;
+    background: var(--main-content-background);
+    box-shadow: none !important;
+    min-height: calc(100vh - 410px) !important;
+    /* padding: 1em 10em; */
+}
+
+/* Background color of the "loading" section when a page is processing the change of a page */
+.ui.inverted.dimmer {
+    background-color: var(--loading-page-background);
+}
+
+/***HYPERLINKS***/
+a, a:link, a:visited, a:hover, a:active, .buttons input{
+    color:  var(--hyperlinks); 
+    font-style: normal;
+    } 
+
+/***NAV-BAR***/
+.navbar {
+    max-width: var(--content-section-size);
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+    padding: 0 3em;
+}
+
+#page.community-registration .ui.steps.nav {
+    display: flex;
+    justify-content: space-evenly;
+    width: var(--content-section-size);
+    align-items: center;
+}
+
+#page.community-registration .ui.steps.nav .step{
+    flex: auto;
+    text-align: center;
+    font-size: 1.2rem !important;
+}
+
+/* Remove/Add background color to the Navigation Bar  */
+.ui.steps {
+    cursor: pointer;
+    background-color: var(--nav-bar-background);
+    border-radius:0;
+    box-shadow: none;
+}
+
+/* Active page */
+.ui.active.step, .ui.steps .step.active {
+    cursor: auto;
+    background-color: var(--nav-bar-background);
+    color: var(--nav-bar-font);
+    font-weight: 700;
+    border-bottom: var(--nav-bar-active-border) 5px solid;
+    border-radius:0;
+    /* border-radius: var(--fields-border-radius);
+    border-top: var(--nav-bar-active-border) 5px solid;
+    border: var(--nav-bar-active-border) 5px solid; */
+}
+
+.step.active::after{
+    display: none;
+}
+
+/* Innactive pages */
+a.step.disabled::after{
+    display: none;
+}
+
+a.step::after {
+    display: none;
+}
+
+.ui.disabled.step, .ui.steps .disabled.step {
+    cursor: auto;
+    background-color: transparent;
+    color: var(--nav-bar-font);
+}
+
+.ui.step, .ui.steps .step {
+    background-color: transparent;
+    color: var(--nav-bar-font);
+    padding: 1em;
+}
+
+/***SUCCESSFUL-MESSAGES***/
+.ui.positive.message, .ui.success.message {
+    background-color: var(--success-message-background);
+    color: var(--success-message-font);
+    border-radius: var(--fields-border-radius);
+}
+
+/***WARNING-MESSAGES***/
+.ui.warning.message, .ui.yellow.message {
+    background-color: var(--warning-message-background);
+    color: var(--warning-message-font);
+    border-radius: var(--fields-border-radius);
+}
+
+/***ERROR-MESSAGES***/
+
+/* Error messages on unanswered required fields */
+div#validationErrorsBox > div.header {
+    margin-bottom: 0;
+}
+
+div#validationErrorsBox > ul.list {
+    display: var(--error-message-fields-display);
+    justify-content: center;
+}
+
+.ui.message ul.list {
+    opacity: .85;
+    list-style-position: inside;
+    margin: 0.2em 0;
+    padding: 0;
+}
+
+/*.ui.message ul.list li:before{
+    display: none;
+}*/
+
+.ui.error.message, .ui.negative.message {
+    background-color: var(--error-message-top-page-background);
+    color: var(--error-message-top-page-font);
+    text-align: center;
+    border: var(--error-message-top-page-background) 1px solid;
+}
+
+div#validationErrorsBox >ul.list>li>a {
+    color: var(--error-message-top-page-font);
+}
+
+.ui.pointing.above.label:before, .ui.pointing.label:before{
+    display: none;
+}
+
+.ui.red.label, .ui.red.labels .label {
+    background-color: var(--error-message-fields-background) !important;
+    border-color: var(--error-message-fields-background) !important;
+    color: var(--error-message-fields-font);
+    border-radius: var(--fields-border-radius);
+    font-weight: bold;
+}
+
+.ui.form .field.error input[type=color], .ui.form .field.error input[type=date], .ui.form .field.error input[type=datetime-local], .ui.form .field.error input[type=datetime], .ui.form .field.error input[type=email], .ui.form .field.error input[type=month], .ui.form .field.error input[type=number], .ui.form .field.error input[type=password], .ui.form .field.error input[type=search], .ui.form .field.error input[type=tel], .ui.form .field.error input[type=text], .ui.form .field.error input[type=time], .ui.form .field.error input[type=url], .ui.form .field.error input[type=week], .ui.form .field.error textarea, .ui.form .fields.error .field input[type=color], .ui.form .fields.error .field input[type=date], .ui.form .fields.error .field input[type=datetime-local], .ui.form .fields.error .field input[type=datetime], .ui.form .fields.error .field input[type=email], .ui.form .fields.error .field input[type=month], .ui.form .fields.error .field input[type=number], .ui.form .fields.error .field input[type=password], .ui.form .fields.error .field input[type=search], .ui.form .fields.error .field input[type=tel], .ui.form .fields.error .field input[type=text], .ui.form .fields.error .field input[type=time], .ui.form .fields.error .field input[type=url], .ui.form .fields.error .field input[type=week], .ui.form .fields.error .field textarea {
+    background-color: var(--fields-background);
+    border-color: var(--error-message-fields-border-color);
+    border-left: none;
+    color: var(--error-message-fields-background);
+    padding-left: 1.2em;
+    border-bottom-left-radius: var(--fields-border-radius);
+    border-top-left-radius: var(--fields-border-radius);
+    -webkit-box-shadow: 0.3em 0 0 0 var(--error-message-fields-background) inset;
+    box-shadow: 0.3em 0 0 0 var(--error-message-fields-background) inset;
+}
+
+div.error .input i.inverted.icon {
+    background-color: transparent;
+}
+div#validationErrorsBox ul.list li >a {
+    color: --error-message-fields-background;
+}
+
+.ui.form .field.error .input, .ui.form .field.error label, .ui.form .fields.error .field .input, .ui.form .fields.error .field label {
+    color: --error-message-fields-background;
+}
+
+/* Error message after completing registration i.e. invoice could not be created */
+.errors, .errors .xb1, .errors .xb2, .errors .xb3, .errors .xb4, .errors .xboxcontent, .errors .xb5, .errors .xb6, .errors .xb7, .errors .xb8 {
+    color: var(--error-message-fields-font);
+    border-color: var(--error-message-fields-background);
+    background-color: var(--error-message-fields-background);
+}
+
+/* COOKIES */
+
+.cookie-consent-banner {
+    background: var(--cookie-banner-background-color) !important;
+    color: var(--primary-font-color);
+    -webkit-box-shadow: 0px 2px 10px -3px #999;
+    -moz-box-shadow: 0px 2px 10px -3px #999;
+    box-shadow: 0px 2px 10px -3px #999;
+}
+/* Cookies buttons */
+
+.cookie-consent-banner-settings-button, .cookie-consent-banner-decline-button, .cookie-consent-banner-accept-button {
+    background-color: var(--buttons-secondary-background) !important;
+    color: var(--buttons-secondary-font) !important;
+}
+
+.cookie-consent-banner-settings-button:hover, .cookie-consent-banner-decline-button:hover, .cookie-consent-banner-accept-button:hover {
+    background-color: var(--button-hovered-background) !important;
+    color: var(--button-hovered-font) !important;
+}
+
+/*** BANNER ***/
+
+.clear.logo-container {
+    display: flex;
+    justify-content: center;
+}
+
+.logo-header {
+    display: inline;
+    max-height: none;
+    /* max-height: 65vh; */
+    min-height: none;
+    max-width: var(--content-section-size);
+}
+
+/***BUTTONS***/
+
+.ui.button {
+    background-image: none;
+    border-radius: var(--fields-border-radius);
+    box-shadow: none;
+    height: 3em;
+    background-color: var(--buttons-primary-background);
+    color: var(--buttons-primary-font);
+}
+
+.ui.button:hover {
+    background-color: var(--button-hovered-background);
+    color: var(--button-hovered-font);
+}   
+
+.ui.labeled.icon.button, .ui.labeled.icon.buttons .button {
+    position: relative;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    height: 3em;
+}
+
+i.icon.checkmark{
+    display: none;
+}
+
+.ui.button, .ui.buttons .button {
+    width: 15em;
+}
+
+.ui.labeled.icon.button>.icon, .ui.labeled.icon.buttons>.button>.icon {
+    display: none;
+}
+
+/* Navigation buttons size  */
+.navigation-bottom {
+    margin-top: 3em;
+    padding-bottom: 1em;
+}
+
+/* Buttons hovered */
+.ui.green.button:hover, .ui.red.button:hover, .ui.blue.button:hover{
+    background-color: var(--button-hovered-background);
+    color: var(--button-hovered-font);
+}
+
+.ui.button:hover {
+    background-image: none;
+}
+
+button.ui.green.icon.right.labeled.button.next:hover {
+    background-color: var(--button-hovered-background);
+}
+
+/* GREEN BUTTON COLOR */
+.ui.green.button.active, .ui.green.buttons .active.button, .ui.green.icon.right.labeled.button.next, .ui.green.button, .hot-pendingchanges-continue, .ui.green.button:active
+{
+background-color: var(--buttons-primary-background);
+}
+
+/* BLUE BUTTON COLOR */
+.ui.blue.button.active, .ui.blue.buttons .active.button,.ui.blue.button, .ui.blue.buttons, .ui.blue.button:active
+{
+background-color: var(--buttons-primary-background);
+}
+
+/* RED BUTTON COLOR */
+.ui.red.button.active, .ui.red.buttons .active.button,.ui.red.buttons .active.button, .ui.red.button, .ui.red.button:active {
+    background-color: var(--buttons-primary-background);
+}
+
+/* GRAY BUTTON COLOR */
+/* .ui.labeled.icon.button, .ui.labeled.icon.buttons .button, .ui.buttons, .ui.button, .hot-pendingchanges-cancel
+ {
+    background-color: var(--buttons-primary-background);
+} */
+
+/* ORANGE BUTTON COLOR */
+.ui.orange.button, .ui.orange.buttons .button {
+    background-color: var(--buttons-primary-background);
+    color: var(--buttons-primary-font);
+}
+
+/* TINY BUTTONS (PENDING CHANGES) */
+.hot-pendingchanges-item-link.ui.tiny.button {
+    background-color: var(--buttons-primary-background);
+}
+
+/* USE CONTACT INFO AS BILLING ADDRESS BUTTON */
+button.fill-from-main-address.ui.blue.button{
+    width: 30em;
+    background-color: var(--buttons-secondary-background) !important;
+    color: var(--buttons-secondary-font) !important;
+}
+ 
+
+/*** FOOTER ***/
+
+#page-footer {
+    background-color: var(--footer-background);
+    margin: 0 auto;
+    max-width: var(--content-section-size) !important;
+}
+
+/***FIELDS***/
+.ui.checkbox input:focus~label, .ui.checkbox label:hover {
+    color: var(--primary-font-color);
+}
+/* fields */
+.ui.form input[type=text], .ui.form input[type=email], .ui.form input[type=password]{
+    margin: 0.3em 0 0.2em 0;
+    padding: 0.75em 1em;
+    background-color: var(--fields-background);
+    border-radius: var(--fields-border-radius);
+}
+
+.dropdowncomponent {
+    padding: 0.83em 1em;
+    border: var(--fields-border);
+    border-radius: var(--fields-border-radius);
+    margin: 0.3em 0 0 0 !important;
+}
+
+.ui.selection.active.dropdown {
+    border-color: var(--fields-border) !important;
+}
+.ui.selection.active.dropdown .menu {
+    border-color: var(--fields-border) !important;
+}
+
+.ui.selection.active.dropdown:hover {
+    border-color: var(--fields-border) !important;
+}
+
+/* Remove border */
+.ui.form input[type=text], .ui.form input[type=password], .ui.form input[type=email]{
+    border: var(--fields-border);
+}
+/* Remove corner labels in each required field */
+.ui.corner.label:after {
+    display: none;
+}
+i.icon.asterisk:before {
+    display: none;
+}
+
+/* Remove placeholders */
+.ui.form input[type=text]::placeholder, .ui.form input[type=email]::placeholder, .ui.form input[type=password]::placeholder {
+    color: var(--fields-placeholders-font);
+}
+
+/* Field label font color */
+.ui.form .field>label, .ui.checkbox label {
+    color: var(--primary-font-color);
+}
+
+/* Focus field left-side border color  */
+.ui.form input[type=color]:focus, .ui.form input[type=date]:focus, .ui.form input[type=datetime-local]:focus, .ui.form input[type=datetime]:focus, .ui.form input[type=email]:focus, .ui.form input[type=month]:focus, .ui.form input[type=number]:focus, .ui.form input[type=password]:focus, .ui.form input[type=search]:focus, .ui.form input[type=tel]:focus, .ui.form input[type=text]:focus, .ui.form input[type=time]:focus, .ui.form input[type=url]:focus, .ui.form input[type=week]:focus .ui.form textarea:focus {
+    box-shadow: 0.3em 0 0 0 var(--hyperlinks) inset;
+}
+
+/* Radio buttons/checkboxes border: Change color or remove  */
+.ui.checkbox .box:before, .ui.checkbox label:before {
+    box-shadow: var(--radio-button-checkbox-border-size-color);
+}
+
+/* Upload file button  */
+.afuc-browsebutton {
+    padding: 0.3em;
+    background-color: var(--upload-file-browse-button-background);
+    font-size: 1em;
+    color: var(--upload-file-browse-button-font);
+}
+
+.afuc-selectedfile-remove {
+    background-image: url(/BComProd1/CustomContent/essc-pco/MCIUKPCOTE/delete_upload.png);
+    background-size: 12px;
+    color: var(--hyperlinks);
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* Change pointer to regular cursor for checkboxes */
+.ui.checkbox .box, .ui.checkbox label {
+    cursor: inherit;
+}
+
+/*** HEADERS ***/
+h1, h2, h3, h4, h5, h6{
+    color: var(--headers) !important;
+    text-align: var(--headers-alignment);
+}
+
+h2{
+    font-size: 2em;
+}
+.ui.red.header {
+    color: var(--headers) !important;
+    font-size: 1.5em;
+}
+
+/* Questionnaires and service headers  */
+h2.questionnaire-title {
+    text-align: var(--headers-alignment);
+}
+.component-service-reservation > h2 {
+    text-align: left;
+}
+
+.component-questionnaire.ui.dimmable {
+    padding: 1em 2em;
+}
+.fieldGroupSeparation {
+    margin: 0;
+}
+
+.ui.form.segment.questionnaire-form {
+    padding: 0;
+}
+
+
+/* SELECTORS (CALENDAR, TIME, QUANTITY) */
+
+/* Spinner (quantity) */
+.ui-widget input, .ui-widget select, .ui-widget textarea, .ui-widget button {
+    font-family: var(--primary-font-family);
+    font-size: 1em;
+}
+.ui-spinner {
+    border: var(--fields-border);
+    height: 16px;
+}
+
+.ui-spinner input {
+    margin-top: -0 !important;
+}
+.ui-spinner-input {
+    padding: 0 !important;
+    outline-color: transparent;
+}
+input.ui-spinner-input {
+    padding-left: 5px !important;
+    font-family: var(--primary-font-family) !important;
+    background-color: var(--fields-background) !important;
+    border: var(--fields-border) !important;
+    color: var(--primary-font-color) !important;
+    border-radius: var(--fields-border-radius) !important;
+}
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    border: 1px solid var(--primary-font-color);
+    color: var(--primary-font-color);
+}
+.ui-widget {
+    font-family: Arial,sans-serif;
+    font-size: 1em;
+}
+
+.ui-corner-all {
+    border-radius: var(--fields-border-radius);
+    border: var(--fields-border);
+}
+
+.ui-widget-content {
+    background: none;
+    color: var(--primary-font-color);
+    background-color: var(--fields-background);
+}
+
+/* Calendar */
+.ui-widget-header {
+    background: none;
+    color: var(--buttons-primary-font);
+    background-color: var(--nav-bar-active-border);
+}
+
+/* ============================
+   ========WELCOME-PAGE======== 
+   ============================ */
+
+/*** HEADERS ***/
+
+.ui.header{
+    text-align: var(--headers-alignment);
+    font-size:2em;
+    color: var(--headers);
+}
+
+/*** REMOVE ELEMENTS ***/
+
+.ui.divider {
+    display: none;
+}
+/* Header with event tile and date */
+.component-registration-introduction > h1.ui.dividing.header {
+    display: none;
+}
+
+.ui.vertical.divider.welcome-or {
+    display: none;
+}
+
+#contactUsButton {
+    display: none;
+}
+
+.introduction-content p:nth-child(1) {
+    display: none;
+}
+
+/* Intro-text remove bullet points */
+p.introduction-content > ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/*** BUTTON ICONS ***/
+
+/* Remove icons and center */
+.ui.right.labeled.icon.button {
+    padding-right: 1.4em!important;
+}
+
+i.sign.in.icon {
+    display: none;
+}
+
+i.signup.icon {
+    display: none;
+}
+
+.component-login {
+    display: flex;
+    flex-direction: column;
+    /* width: 40%;
+    margin: 0 auto; */
+}
+
+.component-login #loginButton {
+    margin: 2em auto;
+}
+
+.component-login .forgotten-password {
+    text-align: left;
+}
+
+.component-signup {
+    display: flex;
+    flex-direction: column;
+}
+
+button#signupButton {
+    margin: 0 auto;
+}
+
+.ui.right.labeled.icon.button {
+    padding-right: 1.4em!important;
+    height: 3em;
+    border-radius: var(--fields-border-radius);
+    box-shadow: none !important;
+}
+
+/* REMOVE BORDERS AND SEGMENT BACKGROUND COLOR */
+.ui.segment {
+    position: relative;
+    background-color: transparent;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin: 1em 0;
+    padding: 1em 2em;
+    border-radius: var(--fields-border-radius);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* SOCIAL MEDIA LINKS */
+.component-externallogin .externalcommunity-item {
+    border: none;
+    filter: none;
+}
+.component-externallogin div.externalcommunity-item:hover {
+    border: 0;
+    background-color: transparent;
+}
+
+/* SELECTION CHOICE CARDS: INDIV OR GROUP */
+.item.registration-type-selection-choice {
+    border-radius: var(--fields-border-radius) !important;
+    background: var(--body-background) !important;
+}
+.item.registration-type-selection-choice >.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* Headers */
+.ui.items .item>.content>.name {
+    font-size: 1.5em;
+    color: var(--headers);
+}
+/* Description */
+.ui.items .item>.content>.description {
+    clear: both;
+    margin: 0;
+    color: var(--primary-font-color);
+    text-align: center;
+    padding-top: 1rem;
+}
+/* Buttons */
+button.bottom.attached.ui.green.floated.right.labeled.icon.responsive-large-button.button.registration-type-selection-button {
+    height: 4em;
+    text-align: center;
+    vertical-align: middle !important;
+}
+
+/***DUPLICATED ACCOUNT POPUP***/
+
+/* Remove old images/icons */
+.ui.items .item>.image>img {
+    display: none;
+}
+/* Pop-up background color */
+.ui.modal {
+    background-color: #FFF;
+    border: 1px solid #FFF;
+    border-radius: var(--fields-border-radius);
+}
+/* Pop-up secondary-background color */
+.ui.modal>.content {
+    background: var(--main-content-background);
+    border-radius: 10px;
+}
+/* Option cards to reset password, create new account, etc. */
+.ui.items>.item, .ui.items>.row>.item {
+    margin: 0 0.5em;
+    background-color: #FFF;
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.25);
+    box-shadow: 0 0 0 1px rgba(0,0,0,.25);
+    border-bottom: none;
+    border-radius: 10px;
+}
+
+/* Hover state on each card */
+.ui.items .item:nth-of-type(6n+1):hover, .ui.items .item:nth-of-type(6n+2):hover, .ui.items .item:nth-of-type(6n+3):hover {
+    border-bottom-color: var(--hyperlinks) !important;
+    box-shadow: 0 0 0 1px var(--hyperlinks);
+    border-bottom: 0.5em solid;
+}
+
+/* ============================
+   ===========CONSENT========== 
+   ============================ */
+
+div#consentNavigation {
+    margin-top: 2em;
+}
+
+.component-consent {
+    margin-top: 2em;
+    padding: 1em 2em;
+}
+
+/* Make mandatory asterisk aligned to text */
+.component-consent > div.ui.form > div.field.required {
+    display: flex;
+}
+
+/* ============================
+   ===========CONTACT========== 
+   ============================ */
+
+/* mobile phone icon */
+i.inverted.icon {
+    background-color: var(--primary-font-color);
+    color: #FFF;
+}
+
+.ui.icon.input>.icon {
+    opacity: 1;
+    border-radius: 0;
+    color: var(--primary-font-color);
+    background-color: transparent;
+    top: 0.3em;
+    /* top: 0; */
+    padding-top: 0.6em;
+    font-size: 1.2em;
+}
+
+.ui.left.icon.input>.icon {
+    border-radius: 0;
+}
+
+/* CREATE ACCOUNT */
+
+.passwordChecker td {
+    border-bottom: 0;
+    border-left: 0;
+    width: 3em;
+}
+
+/* Billing address check-box align */
+.addressItem {
+    padding: 1em 2em 0;
+}
+
+.component-contact-information .contact-info-requiredfields {
+    padding: 1em 2em 0;
+}
+
+/* ===============================
+   =======REGISTRATION-FEES======= 
+   =============================== */
+
+/* PRICING */
+
+.ui.checkbox {
+    display: block;
+}
+.component-service-reservation .ui.checkbox.radio > label {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+}
+
+.component-service-reservation .serviceLine label .servicePrice {
+    justify-self: right;
+    grid-column: 3;
+}
+
+span.occurrencedatetime {
+    grid-row: 2;
+}
+
+.component-service-reservation .unselect-selection {
+    cursor: pointer;
+    float: right;
+    color: var(--hyperlinks) !important;
+    text-decoration: underline !important;
+    font-weight: bold;
+    padding-right: 1.5em;
+}
+
+/* =============================
+   ============HOTEL============ 
+   ============================= */
+
+/***BEST DEALS POP-UP WINDOW***/
+.customhotlayout-intropopup {
+    z-index: 1001;
+    display: none;
+    top: 20%;
+    position: fixed;
+    padding: 15px 0 25px 0;
+    background-color: var(--hotel-page-pop-up-background-color);
+    border-radius: var(--fields-border-radius);
+}
+/* Get today's best deal banner */
+.customhotlayout-intropopup-calltoaction {
+    height: 7rem !important;
+    font-size: 4.3em !important;
+    padding: 0 !important;
+    margin: 3.5rem 0 0 1.5rem !important;
+    background-color: var(--buttons-secondary-background) !important;
+    color: var(--buttons-secondary-font) !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* View all hotels button */
+.customhotlayout-intropopup-close {
+    background-color: var(--buttons-secondary-background)!important;
+    color: var(--buttons-secondary-font) !important;
+    border-radius: var(--fields-border-radius);
+}
+/* HOTEL CARD */
+.customhotlayout-intropopup-item-content {
+    margin: 1rem;
+}
+.customhotlayout-intropopup-item {
+    background: var(--main-content-background) !important;
+    border-radius: var(--fields-border-radius);
+}
+.customhotlayout-intropopup-item-background {
+    opacity: 0 !important;
+}
+.customhotlayout-intropopup-item-content {
+    margin: 1rem;
+}
+/* Book Hotel buttons */
+.customhotlayout-intropopup-item-booknow {
+    background-color: var(--buttons-primary-background) !important;
+    border-radius: var(--fields-border-radius) !important;
+    color: var(--buttons-primary-font) !important;
+}
+/* Prices */
+.customhotlayout-intropopup-item-price {
+    color: var(--hyperlinks) !important;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/***HOTEL TABLE***/
+/* Lower Hotel table from nav bar*/
+   table.customhotlayout-menu-table {
+    margin-top: 3em;
+}
+
+/* HEADER SECTION WITH DATE SEARCH */
+   td.customhotlayout-calltoaction {
+    background-color: transparent !important;
+}
+
+.component-hotels .customhotlayout-calltoaction-text {
+    text-align: center;
+    background-color: transparent;
+    color: var(--headers);
+    font-size: 4em !important;
+}
+
+.component-hotels .customhotlayout-calltoaction-dates {
+    font-weight: normal;
+    text-align: center;
+    color: var(--primary-font-color);
+}
+
+.component-hotels .customhotlayout-calltoaction-sort-background {
+    opacity: 1 !important;
+    background-color: var(--headers) !important;
+}
+
+.component-hotels .customhotlayout-calltoaction-sort {
+    text-align: center;
+}
+
+.customhotlayout-calltoaction-reservations.hot-reservations-container {
+    color: var(--headers);
+    padding-left: 1em;
+}
+
+.customhotlayout-calltoaction-excluded.hot-excluded-container {
+    color: var(--headers);
+    padding-right: 1em;
+}
+
+/* Check-in & Check-our search */
+input#uxCheckinDate, input#uxCheckoutDate {
+    border: var(--fields-border);
+    border-radius: var(--fields-border-radius);
+    text-align: center;
+}
+
+/* Contracted and external hotel buttons */
+.component-hotels .customhotlayout-tab-external {
+    height: 40px;
+    border-radius: var(--fields-border-radius);
+    border-color: var(--buttons-primary-background);
+}
+
+.component-hotels .customhotlayout-tab-external-image-container {
+    /* Do not change this background color */
+    background-color: #fff;
+}
+
+.component-hotels .customhotlayout-tab-contracted {
+    color: var(--buttons-secondary-font) !important;
+    border-color: var(--buttons-secondary-background) !important;
+    border-radius: var(--fields-border-radius);
+    background-color: var(--buttons-secondary-background);
+    font-size: 0.8em;
+}
+
+/* HOTEL CARDS */
+.component-hotels .hot-listitem {
+    border: 1px solid #AAAAAA;
+}
+/* Book now button */
+.custom-hot-listitem-booknow {
+    background-color: var(--buttons-primary-background);
+    color: var(--buttons-primary-font);
+    border-radius: var(--fields-border-radius);
+    padding: 0.5rem;
+}
+/* Prices */
+.custom-hot-listitem-price {
+    color: var(--hotel-page-prices);
+}
+
+/* CUSTOM HOTELS CARDS */
+.custom-hot-listitem-background {
+    background: var(--main-content-background) !important
+}
+.custom-hot-listitem-booknow-highlighted {
+    background-color: var(--button-hovered-background);
+    color: var(--button-hovered-font);
+    border-radius: var(--fields-border-radius);
+    padding: 0.5rem;
+}
+
+/***CONTRACTED HOTEL EXPANDED***/
+.component-hotels .hot-largeitem {
+    border: none;
+}
+
+.component-hotels .hot-largeitem-primaryimage {
+    width: 25em;
+    height: auto;
+}
+.hot-largeitem-basicdetails {
+    padding-left: 2em;
+}
+
+.ui.tiny.basic.icon.labeled.button {
+    background-color: var(--buttons-primary-background) !important;
+    color: var(--buttons-primary-font) !important;
+}
+
+/* Room rates selection */
+.component-hotels .hot-largeitem-addbookings{
+    background-image: none;
+}
+
+.ui.right.button.bookHot {
+    font-size: 1em !important;
+}
+
+.component-hotels .room-booking-occurrences-table-pivoted {
+    background-color: #FFF;
+    -webkit-box-shadow: 0 0 0 1px rgba(0,0,0,.1);
+    box-shadow: none;
+    border-radius: var(--fields-border-radius);
+}
+
+/* EXTERNAL HOTEL EXPANDED */
+button.hot-external-largeitem-book-now.ui.green.button.right.labeled.icon {
+    background-color: #5BBD72;
+}
+.component-hotels .hot-external-external-dates-mandatory-message, .component-hotels .hot-external-rooms-nb-tip-message {
+    background-color: var(--warning-message-background) !important;
+    color: var(--warning-message-font) !important;
+}
+/* Promotion/conditions banner on top of room type */
+span.tooltip-bottom.ui.label.black {
+    background-color: var(--hotel-room-type-promotion-banner) !important;
+    border-color: var(--hotel-room-type-promotion-banner) !important;
+    color: #fff !important;
+}
+.component-hotels .hot-external-price-per-room {
+    margin-top: 1.5rem;
+}
+.component-hotels .hot-external-totalprice {
+    color: var(--hotel-page-prices);
+}
+
+div#uxShowMoreText > span, div#showMorePrices > span {
+    color: var(--hyperlinks) !important;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/***NO HOTELS AVAILABLE MESSAGE***/
+.ui.icon.message>.icon:not(.close) {
+    display: none;
+}
+.hot-list-noresult.ui.warning.icon.message {
+    border-radius: var(--fields-border-radius);
+    width: auto;
+    background-color: transparent;
+    color: var(--hyperlinks);
+    margin: 1em auto;
+}
+
+/*** RIGHT COLUMN ***/
+.component-hotels .customhotlayout-search-titlecontainer {
+    border-bottom: none !important;
+}
+
+/* Star rating boxes */
+.component-hotels .customhotlayout-search-1star, .component-hotels .customhotlayout-search-2star, .component-hotels .customhotlayout-search-3star, .component-hotels .customhotlayout-search-4star, .component-hotels .customhotlayout-search-5star {
+    background-color: #FFFFFF !important;
+    background-position: 12px -2759px !important;
+}
+
+/* Slider */
+a.ui-slider-handle.ui-state-default.ui-corner-all {
+    border-radius: 5em;
+}
+
+/* ==================================
+   ==============SUMMARY============= 
+   ================================== */
+
+/* Center text */
+   .summary-header.message {
+    text-align: center;
+}
+.component-summary table.summary-table {
+    margin: 2em auto;
+    text-align: left;
+}
+
+/* Buttons */
+#summaryNavigation {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+/* Payment method selection */
+.component-paymentmethodselection {
+    margin-bottom: 1em;
+    margin-top: 4em;
+    text-align: center;
+}
+.component-paymentmethodselection .payment-methods-form {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+}
+div#payment-methods-radiogroup {
+    display: flex;
+}
+div#payment-methods-radiogroup > .fields {
+    margin-right: 2em;
+}
+
+/* Remove new registration button */
+button.ui.green.icon.labeled.button.new-registration {
+    display: none !important;
+}
+
+/* Adjust size of change payment method button */
+input#ctl00_mc_uxPaymentControl_uxPreviousButton {
+    width: auto !important;
+}
+
+/* CONFIRMATION PAGE */
+.component-registrationconfirmation.ui.form.segment {
+    text-align: center;
+}
+
+.twelve.wide.column.payment-summary > table, .twelve.wide.column.contact-summary > table {
+    margin: 1em auto !important;
+    text-align: center;
+    width: 50%;
+}
+.twelve.wide.column.contact-summary > table > tbody > tr > td.three.wide {
+    width: 50%;
+}
+.twelve.wide.column.payment-summary > table > tbody > tr > td.nine.wide{
+    width: 50%;
+}
+.twelve.wide.column.payment-summary > table > tbody > tr > td.three.wide {
+    width: 50%;
+}
+.twelve.wide.column.contact-summary > table > tbody > tr > td.nine.wide{
+    width: 50%;
+}
+
+/* Center summary information */
+.component-registrationconfirmation.ui.form.segment > div.ui.stackable.grid > div.twelve.wide.column.contact-summary {
+    width: 100% !important;
+}
+.component-registrationconfirmation.ui.form.segment > div.ui.stackable.grid > div.twelve.wide.column.payment-summary {
+    width: 100% !important;
+}
+
+/* ==================================
+   ============GROUPS================ 
+   ================================== */
+
+/* REMOVE SHIPPING ADDRESS CHECKBOX/LABEL */
+input[data-bind="checked: groupInformation().UseDifferentShippingAddress"] {
+    display: none;
+}
+span[data-bind="label: { code:'PARTICIPANT_SHIP_USE_DIFFERENT', model: $data }"] {
+    display: none;
+}
+
+/* SMALL GROUP CREATION SUMMARY */
+div.component-group-summary > div.ui.icon.message {
+    background-color: var(--group-member-summary-note-top);
+}
+
+/* Buttons to add new members */
+.component-groupmemberslist > div.ui.top.segment > .icon.button {
+    height: auto;
+    width: auto;
+    background-color: var(--buttons-secondary-background);
+    color: var(--buttons-secondary-font);
+    padding-left: 1em !important;
+    padding-right: 1em !important;
+    font-weight: normal;
+}
+.component-groupmemberslist > div.ui.top.segment.attached {
+    box-shadow: none;
+}
+
+/* Group member list table */
+/* Header */
+table.ui.table.bottom.attached.segment > thead > tr > th {
+    background-color: var(--buttons-primary-background);
+    color: var(--buttons-primary-font);
+}
+
+table.ui.table.bottom.attached.segment {
+    box-shadow: 0 0 0 1px #DDD;
+    border-radius: var(--fields-border-radius);
+}
+
+.ui.table tbody tr:nth-child(2n) {
+    background-color: var(--group-member-summary-table);
+}
+
+/* ==================================
+   =======PORTAL/UNIVERSAL-APP======= 
+   ================================== */
+
+/* Remove arrow one user entered is already logged in */
+.arrow:not(.semantic-icon) {
+    background-image: none;
+    padding-left: 0;
+}
+
+.doubleregistration-intro, p.arrow.subtitle {
+    font-size: 1.2em;
+}
+
+/* Login fields */
+.ui.form.login-form {
+    width: 40%;
+    margin: 2em auto;
+}
+
+.ui.form input:not([type]):focus, .ui.form input[type=date]:focus, .ui.form input[type=datetime-local]:focus, .ui.form input[type=email]:focus, .ui.form input[type=file]:focus, .ui.form input[type=number]:focus, .ui.form input[type=password]:focus, .ui.form input[type=search]:focus, .ui.form input[type=tel]:focus, .ui.form input[type=text]:focus, .ui.form input[type=time]:focus, .ui.form input[type=url]:focus {
+    color: var(--primary-font-color);
+    border-color: var(--hyperlinks);
+    border-radius: var(--fields-border-radius);
+    background: var(--fields-background);
+}
+
+h2.ui.header {
+    font-size: 2.5em;
+    margin: 0.5em 0 !important;
+}
+
+/* Translations */
+button.item.switch-language.ui.button {
+    color: var(--portal-top-menu-icons-color);
+    width: auto;
+}
+
+/* Navigation bar dropdown */
+#pcp-topmenu-regular .current-community.item {
+    color: (--portal-top-menu-icons-color);
+    background-color: (--portal-top-menu-icons-background);
+}
+
+.pcp-topmenu-regular>.ui.dropdown.item>a.text {
+    color: var(--portal-top-menu-icons-color);
+}
+
+.ui.link.menu .item:hover, .ui.menu .dropdown.item:hover, .ui.menu .link.item:hover, .ui.menu a.item:hover {
+    cursor: pointer;
+    background: var(--portal-top-menu-icons-hovered-background) !important;
+    color: var(--portal-top-menu-icons-hovered-color) !important;
+}
+
+/*** DASHBOARD ***/
+
+/* Top 2 cards */
+participant-status-dashboard.card.participant-status-dashboard, participant-financial-dashboard-item {
+    width: 45% !important;
+}
+/* Participant status card */
+h4.ui.sub.header {
+    text-align: left;
+}
+participant-status-dashboard.card.participant-status-dashboard {
+    margin-top: 0 !important;
+}
+
+/* Financial Summary card */
+.sixteen.wide.tablet.seven.wide.computer.column.chartchart {
+    display: none !important;
+}
+.sixteen.wide.tablet.nine.wide.computer.column.legend {
+    width: 100% !important;
+}
+
+a.ui.tiny.primary.button.pay-balance-button {
+    background-color: var(--buttons-primary-background) !important;
+    color: var(--buttons-primary-font);
+}
+a.ui.tiny.primary.button.pay-balance-button:hover {
+    background-color: var(--button-hovered-background) !important;
+    color: var(--button-hovered-font);
+}
+
+.ui.fluid.card.dashboard.item.questionnaire-reservation {
+    display: none;
+}
+
+/* Smaller Cards below */
+a.card {
+    width: 35em !important;
+}
+
+i.blue.icon, .card .action-title {
+    color: var(--portal-card-icons-color) !important;
+    font-weight: normal !important;
+}
+.dashboard-action.cards .card > .content > .action-title {
+    font-weight: bold !important;
+}
+
+/*** CONTACT INFO ***/
+.ui.form textarea {
+    border: var(--fields-border);
+    border-radius: var(--fields-border-radius);
+}
+
+button.ui.primary.button.save-contact {
+    background-color: var(--buttons-primary-background) !important;
+    color: var(--buttons-primary-font);
+}
+
+.ui.selection.dropdown {
+    line-height: 1.5em;
+    background: var(--fields-background);
+    color: var(--primary-font-color);
+    box-shadow: none;
+    border: var(--fields-border);
+    border-radius: var(--fields-border-radius);
+}
+
+/*** ANSWERED QUESTIONS ***/
+.component-service-reservation .ui.checkbox.radio > label, .ui.checkbox > label {
+    content: none;
+}
+
+/* Buttons  */
+a.ui.button.back-button {
+    border-radius: var(--fields-border-radius);
+    background-color: var(--buttons-primary-background);
+    color: var(--buttons-primary-font);
+}
+
+button.ui.primary.button.save-question-answers-button {
+    border-radius: var(--fields-border-radius);
+    margin-left: 0.5em;
+    background-color: var(--buttons-primary-background);
+    color: var(--buttons-primary-font);
+}
+
+a.ui.button.back-button:hover, button.ui.primary.button.save-question-answers-button:hover  {
+    background-color: var(--button-hovered-background);
+    color: var(--button-hovered-font);
+}
+
+/* ADD RESERVATIONS */
+.modification-notification:first-child {
+    background: var(--portal-reservation-modification-message-background);
+    color: var(—portal-reservation-modification-message-font);
+    border-radius: var(--fields-border-radius);
+    -webkit-box-shadow: 0 0 0 1px var(--portal-reservation-modification-message-border) inset, 0 0 0 0 transparent;
+    box-shadow: 0 0 0 1px var(--portal-reservation-modification-message-border) inset, 0 0 0 0 transparent;
+}
+
+a.ui.primary.button.confirm-modifications-button{
+    background-color: var(--buttons-primary-background);
+    color: var(--buttons-primary-font);
+}
+a.ui.primary.button.confirm-modifications-button:hover  {
+    background-color: var(--button-hovered-background);
+    color: var(--button-hovered-font);
+}
+
+/* ACCOMPANYING PERSON */
+a.ui.button.green.add-accompanying-person {
+    width: auto;
+}
+/* Summary/Edit table */
+.component-accompanyingpersonlist>table.ui.table.attached.bottom.segment>tbody>tr>td>div.ui.icon.buttons>div.ui.button {
+    background-color: var(--buttons-secondary-background);
+    color: var(--buttons-secondary-font);
+    margin-bottom: 0.3em;
+}
+
+/* Add Accompanying person button */
+.component-accompanyingpersonlist>div.ui.top.segment>div.ui.blue.right.labeled.icon.large.button {
+    width: auto;
+}
+
+/*** GROUP PORTAL ***/
+.ui.icon.labeled.dropdown.button.violet {
+    text-align: center;
+}
+
+.ui.icon.labeled.dropdown.button.yellow {
+    text-align: center;
+}
+
+/* ===============================
+========INFORMATION-PAGES========= 
+================================== */
+
+/* PAGE */
+
+body.dx-device-desktop.dx-device-generic {
+    background: var(--body-background) !important;
+    background: none;
+}
+
+#page.pcp-page {
+    max-width: 100vw !important;
+    width: 100%;
+    margin: auto;
+    background: var(--main-content-background);
+    box-shadow: none;
+}
+
+/* MAIN CONTENT */
+#ctl00_uxMainContent {
+    max-width: 100vw;
+    margin: 0 auto;
+}
+.bindable-content > p {
+    text-align: center;
+}
+
+button#authenticate-submit-button {
+    background-color: var(--buttons-primary-background) !important;
+    opacity: 1 !important;
+}
+
+.ui.grid>.column:not(.row), .ui.grid>.row>.column {
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+/* BANNER */
+div#ctl00_uxCommunityBanner {
+    background: var(--body-background);
+}
+table.cp-progressive-master-banner-table {
+    margin: 0 auto;
+    background-color: transparent;
+}
+
+/* TOP MENU */
+/* .regular-menu-wrapper.fixed {
+    position: static !important;
+    display: none;
+} */
+div#pcp-topmenu-regular {
+    background: var(--portal-top-menu-background);
+    border-radius: var(--fields-border-radius);
+    -webkit-box-shadow: 0 0 0 0 var(--portal-top-menu-border);
+    box-shadow: 0 0 0 0 var(--portal-top-menu-border);
+    border-color: var(--portal-top-menu-border);
+    padding: 0 10em;
+}
+
+a#ctl00_uxNewsButton, a#ctl00_uxUserAccountButton {
+    background-color: var(--portal-top-menu-icons-background);
+    color: var(--portal-top-menu-icons-color);
+}
+
+
+a#ctl00_uxNewsButton:hover, a#ctl00_uxUserAccountButton:hover {
+    background-color: var(--portal-top-menu-icons-hovered-background);
+    color: var(--portal-top-menu-icons-hovered-color);
+}
+div#pcp-topmenu-regular > a {
+    color: var(--portal-top-menu-icons-color);
+    font-family: var(--primary-font-family);
+}
+div#pcp-topmenu-regular > a:hover {
+    color: var(--portal-top-menu-icons-color);
+    background-color: var(--portal-top-menu-icons-hovered-background);
+}
+
+/*.ui.menu .right.item::before, .ui.menu .right.menu>.item::before {
+    display: none;
+}*/
+
+
+/* BUTTONS */
+a.ui.huge.button {
+    width: auto;
+}
+a.ui.icon.huge.button {
+    border-radius: var(--fields-border-radius);
+}
+
+/* FOOTER */
+div#footer {
+    color: var(--portal-footer-font);
+    background-color: var(--portal-footer-background) !important;
+    width: 100%;
+}
+
+
+/* TO EDIT!!! */
+
+/*MAKE THE FIELD CHANGE PAYMENT METHOD LARGER*/
+#ctl00_mc_uxPaymentControl_uxPreviousButton {
+    width: auto !important;
+}
+
+#ctl00_mc_uxPaymentControl_uxContinue {
+    width: auto !important;
+}
+
+/*MAKE THE 2 BUTTONS AT THE END NEWREG & CLOSE IN A SPECIFIC COLOR*/
+.ui.form.segment span[data-bind|="label: { code:'COMMUNITY_REGISTRATION_NEWREGISTRATION', model: $data }"] {
+    color: #fff !important;
+}
+.ui.form.segment span[data-bind|="label: { code:'COMMUNITY_REGISTRATION_FINISH', model: $data }"] {
+    color: #fff !important;
+}
+button.ui.green.icon.labeled.button.new-registration {
+    display: none !important;
+}
+
+/* ===============================
+========ABSTRACTS========= 
+================================== */
+/* LOGIN PAGE */
+/***ABS-BANNER***/
+.abstract-submission-banner-image {
+    max-width: var(--abstract-content-width);
+    margin: 0 auto !important;
+    display: flex;
+}
+header.abstract-submission-banner.ui.container {
+    background-color: var(--abstract-banner-background);
+}
+header.abstract-submission-banner.ui.container {
+    /* min-width: 100% !important; */
+}
+
+/* Remove segments' borders */
+welcome > div.ui.segments {
+    border: none;
+}
+login > div.ui.segments {
+    border: none;
+}
+
+/* Existing abstract pop-up window */
+.ui.modal.duplicate-abstract-check-modal.transition.visible.active.front>div.actions>.ui.yellow.right.labeled.icon.button {
+    line-height: 3em;
+    padding-right: 0 !important;
+}
+
+/* Navigation bar clickable pages */
+abstract-submission-modification-navigation .ui.breadcrumb .clickable {
+    color: var(--hyperlinks);
+}
+
+/***MAIN CONTENT***/
+.ui.form .field>label{
+    font-size: 1em;
+}
+
+main.ui.container.main-content.abstract-main-content.pjax-fragment {
+    margin-top: 1em;
+    color: var(--primary-font-color);
+    min-width: 100% !important;
+    padding: 1em 4em;
+}
+.abstract-main-content {
+    background: var(--abstract-main-content-background-color);
+    padding: 1em;
+}
+.ui.segments>.segment, .ui.segments>.horizontal.segments {
+    border-top: none;
+    margin-top: 0.5em;
+}
+
+/* Abstract submission buttons */
+button.ui.primary.right.floated.button, button.ui.primary.left.floated.button {
+    border-radius: var(--fields-border-radius);
+    box-shadow: none;
+    height: 3em;
+    background-color: var(--buttons-primary-background);
+    color: var(--buttons-primary-font);
+}
+
+/* Hovered status override */
+button.ui.compact.primary.button.login-button:hover, button.ui.compact.primary.button.continue-button:hover, button.ui.primary.right.floated.button.save-contact-button:hover, button.ui.primary.left.floated.button.back-author-page-button:hover, button.ui.right.floated.primary.button.select-submission-type:hover, button.ui.primary.left.floated.button.back-abstract-classification:hover, button.ui.primary.right.floated.button.save-abstract-classification:hover, button.ui.primary.left.floated.button.back-abstract-content:hover, button.ui.primary.right.floated.button.save-abstract-content:hover,a.ui.right.floated.button.blue.abstract-preview-download-pdf-button:hover,a.ui.right.floated.button.blue.abstract-preview-download-word-button:hover, a.ui.left.floated.button.blue.abstract-preview-back-button:hover, button.ui.right.floated.button.blue.abstract-continue-draft-button:hover {
+    background-color: var(--button-hovered-background) !important;
+}
+
+/* Primary buttons */
+.ui.primary.button, .ui.primary.buttons .button, .ui.blue.button:focus, .ui.blue.buttons .button:focus {
+    background-color: var(--buttons-primary-background);
+    color: var(--buttons-primary-font);
+}
+
+.ui.primary.button:hover, .ui.primary.buttons .button:hover, .ui.primary.button:hover, .ui.primary.buttons:hover.button {
+    background-color: var(--button-hovered-background) !important;
+    color: var(--button-hovered-font) !important; 
+}
+
+.ui.tertiary.blue.button, .ui.tertiary.blue.buttons .button, .ui.tertiary.blue.buttons .tertiary.button {
+    background-color: var(--buttons-primary-background) !important;
+    color: var(--buttons-primary-font) !important;
+    border-radius: var(--fields-border-radius);
+}
+.ui.tertiary.blue.button:hover, .ui.tertiary.blue.buttons .button:hover, .ui.tertiary.blue.buttons button:hover {
+    background-color: var(--button-hovered-background) !important;
+    color: var(--button-hovered-font) !important;
+    box-shadow: none;
+}
+
+.ui.tertiary.blue.active.button, .ui.tertiary.blue.button:active, .ui.tertiary.blue.buttons .active.button, .ui.tertiary.blue.buttons .button:active, .ui.tertiary.blue.buttons .tertiary.active.button, .ui.tertiary.blue.buttons .tertiary.button:active {
+    box-shadow: none;
+}
+
+/* Secondary buttons */
+.ui.secondary.button, .ui.secondary.buttons .button {
+    background-color: var(--buttons-secondary-background);
+    color: var(--buttons-primary-font);
+    text-shadow: none;
+}
+
+.ui.secondary.button:hover, .ui.secondary.buttons .button:hover {
+    background-color: var(--button-hovered-background) !important;
+    color: var(--button-hovered-font) !important;
+}
+
+.ui.tertiary.red.button, .ui.tertiary.red.buttons .button, .ui.tertiary.red.buttons .tertiary.button {
+    background-color: var(--buttons-secondary-background) !important;
+    color: var(--buttons-secondary-font) !important;
+    border-radius: var(--fields-border-radius);
+}
+
+.ui.tertiary.red.button:hover, .ui.tertiary.red.buttons .button:hover, .ui.tertiary.red.buttons button:hover {
+    background-color: var(--button-hovered-background) !important;
+    color: var(--button-hovered-font) !important;
+    box-shadow: none;
+}
+
+.ui.tertiary.red.active.button, .ui.tertiary.red.button:active, .ui.tertiary.red.buttons .active.button, .ui.tertiary.red.buttons .button:active, .ui.tertiary.red.buttons .tertiary.active.button, .ui.tertiary.red.buttons .tertiary.button:active, .ui.tertiary.blue.button:focus, .ui.tertiary.blue.buttons .button:focus, .ui.tertiary.blue.buttons .tertiary.button:focus, .ui.blue.button:focus, .ui.blue.buttons .button:focus {
+    box-shadow: none;
+}
+
+.ui.tertiary.green.button, .ui.tertiary.green.buttons .button, .ui.tertiary.green.buttons .tertiary.button {
+    background-color: var(--buttons-secondary-background) !important;
+    color: var(--buttons-secondary-font) !important;
+    border-radius: var(--fields-border-radius);
+    line-height: 2em;
+}
+
+.ui.tertiary.green.button:hover, .ui.tertiary.green.buttons .button:hover, .ui.tertiary.green.buttons button:hover {
+    background-color: var(--button-hovered-background) !important;
+    color: var(--button-hovered-font) !important;
+    box-shadow: none;
+}
+
+.ui.yellow.button, .ui.yellow.buttons .button {
+    background-color: var(--buttons-secondary-background) !important;
+    color: var(--buttons-secondary-font) !important;
+    border-radius: var(--fields-border-radius);
+}
+
+.ui.yellow.button:hover, .ui.yellow.buttons .button:hover {
+    background-color: var(--button-hovered-background) !important;
+    color: var(--button-hovered-font) !important;
+    box-shadow: none;  
+}
+
+/* Reduce new contact fields */
+form.ui.form.duplicate-contact-check-form {
+    width: 40%;
+    margin: 2em auto;
+}
+
+/* Header background */
+.ui.secondary.segment {
+    background: var(--abstract-section-header-background);
+    border-radius: var(--fields-border-radius) !important;
+}
+
+.ui.segments {
+    border: var(--fields-border);
+    -webkit-box-shadow: 0 1px 2px 0 var(--fields-border);
+    box-shadow: 0 1px 2px 0 var(--fields-border);
+    border-radius: var(--fields-border-radius);
+}
+
+/* Dividing headers border color */
+.ui.primary.dividing.header {
+    border-bottom: 2px solid var(--abstract-header-dividers);
+    text-align: left;
+}
+
+/* HELP MESSAGE */
+.ui.message.help-message {
+    background-color: var(--abstract-help-message-background);
+    -webkit-box-shadow: 0 0 0 1px rgba(34,36,38,.22) inset, 0 0 0 0 transparent;
+    box-shadow: 0 0 0 1px rgba(34,36,38,.22) inset, 0 0 0 0 transparent;
+    border-radius: var(--fields-border-radius);
+    color: var(--abstract-help-message-font-color);
+}
+
+/* Warning message font */
+.ui.warning.message .header {
+    color: var(--warning-message-font);
+}
+
+/* SUBMISSION PAGES */
+
+/* Headers aligned to left-side */
+main.ui.container.main-content.abstract-main-content.pjax-fragment > div.bindable-content > h1 {
+    text-align: left;
+}
+
+/* STEP 1: Submission type selection */
+/* Add padding to selection box */
+.item.available-submission-type > div.content {
+padding: 1em !important;
+}
+
+.item.available-submission-type {
+    box-shadow: none !important;
+    background: none !important;
+}
+
+.item.available-submission-type:hover {
+    border-bottom: none !important;
+    box-shadow: none !important;
+    background: none !important;
+}
+
+.description.submission-type-disclaimer > div.ui.field > div.ui.checkbox > label.agreement-label {
+    text-align: left;
+}
+
+/* Remove "Free" label */
+.item.available-submission-type > div.content > div.extra > div.ui.label {
+    display: none;
+}
+
+/* STEP 2: Abstract Classification */
+/* Keywords table customization */
+keyword-selection .ui.table.keyword-table {
+    margin-top: 0.5em;
+    margin-left: 0;
+    border: none;
+}
+
+.ui.celled.table.keyword-table>thead>tr>th {
+    display: none;
+}
+
+.ui.celled.table.keyword-table > tfoot > tr > td, .ui.celled.table.keyword-table > tfoot > tr > th {
+    background: var(--fields-background);
+    color: var(--primary-font-color);
+    border: none;
+}
+
+/* Align dropdown box */
+table.ui.celled.table.keyword-table>tfoot>tr>th {
+    padding-left: 0;
+}
+
+/* Topic dropdown selection */
+.ui.dropdown .menu>.header:not(.ui) {
+    color: var(--primary-font-color);
+    font-size: 1em;
+}
+.ui.dropdown .menu>.item {
+    color: var(--primary-font-color);
+}
+
+/* Conflict of interest checkbox */
+abstract-content-field-category-edit > div.field.required > .ui.segment.mutliple-choice-checkboxes-segment {
+    border: none;
+    padding-left: 0;
+}
+
+/* STEP 3: Authors table */
+/* table background color */
+author-list .ui.segment.abstract-authors-details-segment, author-list .abstract-authors-details {
+    background-color: var(--abstract-help-message-background) !important;
+}
+/* Author details row */
+table.ui.table.abstract-author-list > thead > tr > th {
+    background-color: var(--abstract-section-header-background);
+}
+.ui.segment.abstract-authors-details-segment>h6>span {
+    color: var(--headers) !important;
+}
+
+/* Buttons configuration */
+table.ui.table.abstract-author-list>tbody>tr>td>div.ui.basic.black.tiny.buttons>div.ui.icon.button {
+    background-color: var(--fields-background);
+    width: 5em;
+    color: var(--primary-font-color);
+}
+
+table.ui.table.abstract-author-list>tbody>tr>td>div.ui.green.tertiary.icon.button.abstract-author-edit-button {
+    width: 5em;
+    vertical-align: middle;
+}
+table.ui.table.abstract-author-list>tbody>tr>td>div.ui.tertiary.red.icon.button.abstract-author-delete-button {
+    width: 5em;
+    vertical-align: middle;
+}
+
+.ui.animated.icon.button>.content>.icon, .ui.icon.button>.icon, .ui.icon.buttons .button>.icon {
+    vertical-align: middle;
+}
+
+.ui.blue.tertiary.button.abstract-author-list-copy-authors-button {
+    vertical-align: middle;
+}
+
+.ui.blue.tertiary.button.abstract-author-list-add-new-author-button {
+    vertical-align: middle;
+    line-height: 2em;
+}
+
+i.trash.alternate.outline.icon {
+    line-height: 2;
+}
+
+/* Add an author page */
+/* Ribbons/headers */
+.ui.ui.ui.blue.ribbon.label {
+    border-color: transparent;
+    color: var(--buttons-primary-font) !important;
+}
+.ui.blue.labels .label, .ui.ui.ui.blue.label {
+    background-color: var(--buttons-primary-background);
+    border-color: var(--buttons-primary-background);
+    color: var(--buttons-secondary-font);
+    font-size: 1em;
+    border-radius: 0;
+}
+.ui.blue.ribbon.label>span {
+    color: var(--buttons-primary-font)!important;
+}
+
+/* STEP 4: Abstract body */
+/* Upload image */
+.ui.basic.fluid.button > div.panel-fileupload-container > i.huge.cloud.upload.icon {
+    font-size: 2em;
+}
+i.icon.cloud.upload:before {
+    color: var(--hyperlinks);
+}
+fileuploadcontainer>div>div>a.ui.red.right.corner.mini.label {
+    background-color: transparent !important;
+    color: var(--hyperlinks);
+}
+
+.ui.fluid.button, .ui.fluid.buttons {
+    height: auto !important;
+}
+
+abstract-content-field-category-edit .ui.collapsing.table.image-restrictions {
+    margin-top: 0;
+}
+
+/* STEP 5: Draft submission save */
+/* Buttons alignment */
+.abstract-submission-confirmation-component>div.ui.list.horizontal.right.aligned {
+    display: flex;
+}
+.abstract-submission-confirmation-component>div.ui.list.horizontal.right.aligned>div.item>a {
+    width: auto;
+}
+
+.abstract-submission-confirmation-component>div.ui.list.horizontal.right.aligned>div.item>a:hover {
+    background-color: var(--button-hovered-background) !important;
+    color: var(--button-hovered-font) !important;
+}
+
+/* EDIT ABSTRACT PAGE FROM UNIVERSAL APP */
+.abstract-detail-title.title {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Edit button - icon color */
+a.ui.labeled.button.right.floated.abstract-list-manage-abstract > div.ui.icon.button > i.green.edit.icon {
+    color: var(--buttons-primary-font) !important;
+}
+/* Edit button - width */
+a.ui.labeled.button.right.floated.abstract-list-manage-abstract > div.ui.icon.button {
+    width: auto;
+}
+
+/* Abstract status boxes */
+/* Draft */
+.abstract-detail-title.title > .ui.pink.right.floated.label.status-label {
+    background-color: var(--abstract-status-draft-background-color) !important;
+    border-radius: var(--fields-border-radius);
+    width: 5em;
+    text-align: center;
+    margin-bottom: 1em;
+}
+
+/* ABSTRACT EDITING PAGE */
+.abstract-version-actions-section > a.ui.right.floated.button.blue.abstract-submission-content-version-edit-button {
+    margin-right: 1em;
+}
+
+/* Abstract page width */
+@media screen and (min-width: 1200px){
+.ui.ui.ui.container:not(.fluid) {
+    width: 100% !important;
+}
+}
+
+/* ===============================
+==========SUPPLIER-PORTAL=========== 
+================================== */
+/* Account confirmation page alignment */
+body#ctl00_uxBody>form>div#page {
+    width: 100vw !important;
+    text-align: center;
+}
+div#ctl00_mc_SuccessPanel {
+    text-align: center;
+}
+
+/*Old website link*/
+body#ctl00_uxBody>form>div#page>div#header>div#logo>img {
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+
+/* ===============================
+==========MEDIA QUERIES=========== 
+================================== */
+
+/* Segment padding */
+@media screen and (max-width: 480px) {
+    .ui.segment {
+        padding: 1em;
+    }
+}
+
+
+@media screen and (max-width: 740px) {
+    /* Nav bar width */
+    #page.community-registration .ui.steps.nav {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    /* Login forms width */
+    .ui.form.login-form, form.ui.form.duplicate-contact-check-form {
+        width: 100%;
+        margin: 2em auto;
+    }
+}
+
+/* Navigation buttons */
+@media screen and (max-width: 415px) {
+    .navigation-bottom {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    div#consentNavigation {
+        display: flex;
+    }
+}
+
+/* Portal top cards  */
+@media only screen and (min-width: 992px){
+.ui.column.grid>[class*="nine wide computer"].column, .ui.grid>.column.row>[class*="nine wide computer"].column, .ui.grid>.row>[class*="nine wide computer"].column, .ui.grid>[class*="nine wide computer"].column {
+    width: 100%!important;
+}
+}
+
+/* Group portal buttons - participant management list */
+@media screen and (max-width: 1190px) {
+    .communitymember-list-header.header>div.ui.secondary.stackable.menu {
+    display: flex;
+    flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+.communitymember-list-header.header>div.ui.secondary.stackable.menu>div.right.menu>div.item {
+    justify-content: center;
+    }    
+.communitymember-list-header.header>div.ui.secondary.stackable.menu>div.right.menu>div.item>div.small.ui.buttons {
+    display: flex;
+    flex-direction: column;
+    }
+}
+
+
+/* END Theme 2023 - Responsive Websites (DO NOT DELETE) */
